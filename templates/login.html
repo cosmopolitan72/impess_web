@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 999px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    .login-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 999px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 3px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #2980b9;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .links a {
+      color: #3498db;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .flash-message {
+      color: green;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>로그인</h1>
+
+    {% with messages = get_flashed_messages() %}     <!--로그인 성공 메시지-->
+      {% if messages %}
+        {% for msg in messages %}
+          <div class="flash-message">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+      {{ form.csrf_token }}
+
+      <div class="form-group">
+        {{ form.userid.label }}
+        {{ form.userid(size=32) }}
+        {% for error in form.userid.errors %}
+          <div class="error">{{ error }}</div>
+        {% endfor %} 
+      </div>
+
+      <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password(size=32) }}
+        {% for error in form.password.errors %}
+          <div class="error">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="submit-btn">로그인</button>
+    </form>
+
+    <div class="links">
+      <p><a href="/register">회원가입</a> | <a href="/"> 홈으로</a></p>
+    </div>
+  </div>
+</body>
+</html>
