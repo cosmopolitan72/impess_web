@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>홈</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h1 { text-align: center; color: #333; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; color: #444; }
+    input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 999px; }
+    .error { color: red; font-size: 0.9em; margin-top: 3px; }
+    .submit-btn {
+      width: 100%; background: #3498db; color: white;
+      padding: 10px; border: none; border-radius: 999px;
+      font-size: 16px; cursor: pointer;
+    }
+    .submit-btn:hover { background: #2980b9; }
+    .links { text-align: center; margin-top: 15px; }
+    .links a { color: #3498db; text-decoration: none; font-size: 14px; }
+  </style>
+</head>
+<body>
+  {% if userid %}       <!--로그인된 상태 의미-->
+    <div class="container">
+      <h1>{{ userid }}님 환영합니다!</h1>
+      <div class="links"><a href="/logout">로그아웃</a></div>
+    </div>
+  {% else %}      <!--로그인 x-->
+    <div class="container">
+      <h1>로그인</h1>
+      <form method="post">
+        {{ form.csrf_token }}     <!--flask wtf 부분-->
+        <div class="form-group">
+          {{ form.userid.label }}
+          {{ form.userid(size=32) }}
+          {% for error in form.userid.errors %}
+            <div class="error">{{ error }}</div>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          {{ form.password.label }}
+          {{ form.password(size=32) }}
+          {% for error in form.password.errors %}      <!--입력 오류 alert-->
+            <div class="error">{{ error }}</div>
+          {% endfor %}
+        </div>
+        <button type="submit" class="submit-btn">로그인</button>
+      </form>
+      <div class="links">
+        <a href="/register">회원가입</a>
+      </div>
+    </div>
+  {% endif %}
+</body>
+</html>
+
