@@ -34,6 +34,9 @@ myproject/
 
 *** 로그인 상태에서 ***
 GET /logout -> session.pop -> redirect(로그인 화면으로)
+
  
 ####
 html 파일은 모두 templates 폴더 안에 들어가 있어야 합니다~!
+
+sqlite3 db.sqlite (db.sqlite 생성 안될 경우 터미널에 입력) 
