@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0.0-blue" width="120">
-  <img src="https://img.shields.io/badge/license-MIT-green" width="100">
+  <img src="https://img.shields.io/badge/license-MIT-green" width="110">
 </p>
 
 ## 소개: flask 기반으로 만든 간단한 로그인 페이지입니다.
