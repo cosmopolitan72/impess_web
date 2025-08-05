@@ -1,4 +1,4 @@
-# 🖥️ Impess_web
+# 🌍 Impess_web
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0.0-blue" width="120">
@@ -6,7 +6,7 @@
 </p>
 
 ## 소개: flask 기반으로 만든 간단한 로그인 페이지입니다.
-## 폴더 구조 
+## 🟨 폴더 구조 
 myproject/
 ├── app.py
 ├── models.py
@@ -18,7 +18,7 @@ myproject/
 ├── db.sqlite
 └── README.md
 
-## 주요 기능
+## 🧭주요 기능
 - 사용자 회원가입 (비밀번호 해시 처리 / SHA-256)
 - 로그인/로그아웃 (세션 기반)
 - SQLite 데이터베이스 사용
