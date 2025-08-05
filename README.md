@@ -33,7 +33,7 @@ myproject/
 
 3. app.py에서 디버그 -> http://127.0.0.1:5000 접속 
 
-### 🌊전체 흐름 
+## 🌊전체 흐름 
 
 *** 회원이 없는 경우 ***
 회원가입 -> GET/register -> register.html -> Post/register(사용자의 정보 전송) -> 비밀번호 해시처리 + DB저장 -> register_success.html
@@ -42,7 +42,7 @@ myproject/
 GET /logout -> session.pop -> redirect(로그인 화면으로)
 
  
-#### ⚠️
+## ⚠️
 html 파일은 모두 templates 폴더 안에 들어가 있어야 합니다~!
 
 sqlite3 db.sqlite (db.sqlite 생성 안될 경우 터미널에 입력) 
